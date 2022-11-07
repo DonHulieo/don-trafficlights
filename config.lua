@@ -8,14 +8,17 @@ Config.TrafficLights = {
         minDist = 20.0,
         maxDist = 60.0,
         rad = 10.0,
-        headingThres = 20.0
+        headingThres = 40.0
     },
     duration = {
         civCheckTime = 3000,
         leoCheckTime = 1000,
-        lightTime = 5000
+        lightTime = 5000,
+        leoLightTime = 7500 
     }
 }
+
+Config.JobCheck = 'FirstResponder' -- Set to either LEO, EMS or FirstResponder to change what jobs declared below, trigger a light change
 
 Config.AuthorizedJobs = {
     LEO = { -- this is for job checks which should only return true for police officers
