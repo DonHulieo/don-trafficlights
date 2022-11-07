@@ -1,5 +1,5 @@
 # don-trafficlights
-Traffic Lights Logic for QBCore!
+Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](https://dons-developments.tebex.io/package/5370160).
 
 # Dependencies
 - [qb-core](https://github.com/qbcore-framework/qb-core)
