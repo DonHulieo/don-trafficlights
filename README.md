@@ -6,8 +6,9 @@ Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](
 
 # Features
 - Optimised code, resmon of 0~0.1ms. Peaking for civilians when stopped at lights and when LEO's have sirens on near traffic lights.
-- Set the duration of traffic lights for players.
+- Set the duration of traffic lights for players, lights will turn green after car has been stopped for the duration.
 - Traffic Lights go green if player is an LEO and has sirens on.
+- Config options for traffic light search and duration, as well as options for adding different LEO's.
 
 # Important Config
 ```
