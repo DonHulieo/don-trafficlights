@@ -18,7 +18,7 @@ Config.TrafficLights = {
         minDist = 20.0, -- How close the first traffic light search is
         maxDist = 60.0, -- How far away the last traffic light search is
         rad = 10.0, -- The radius of each search
-        headingThres = 20.0 -- How different the heading of the players car can be from the traffic light
+        headingThres = 40.0 -- How different the heading of the players car can be from the traffic light
     },
     duration = {
         civCheckTime = 3000, -- How often it checks (in ms) if a civilian is stopped // Acts as a psuedo timer for reds
