@@ -10,6 +10,9 @@ Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](
 - Traffic Lights go green if player is an LEO and has sirens on.
 - Config options for traffic light search and duration, as well as options for adding different emergency services.
 
+# Preview
+- [don-trafficlights](https://www.youtube.com/watch?v=xx_WiEObrHk)
+
 # Important Config
 ```
 Config.TrafficLights = {
