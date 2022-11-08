@@ -8,7 +8,8 @@ Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](
 - Optimised code, resmon of 0~0.1ms. Peaking for civilians when stopped at lights and when LEO's have sirens on near traffic lights.
 - Set the duration of traffic lights for players, lights will turn green after car has been stopped for the duration.
 - Traffic Lights go green if player is an LEO and has sirens on.
-- Config options for traffic light search and duration, as well as options for adding different emergency services.
+- Local traffic now see's the updated signals, and will drive when the light tunes green.
+
 
 # Preview
 - [don-trafficlights](https://www.youtube.com/watch?v=xx_WiEObrHk)
@@ -35,3 +36,8 @@ Config.JobCheck = 'First Responder' -- Set to either LEO, EMS or FirstResponder 
 ```
 # LEO's
 - Set your server's emergency service related job names (if they're different) in Config.AuthorizedJobs.
+
+# Changelog
+- v1.0.3 Added amber light to smooth transitions when player leaving intersection area // server synced
+- v1.0.2 Local traffic listens to the updated signals // server synced
+- v1.0.1 Added Config.JobCheck so users aren't forced to only use FirstResponders

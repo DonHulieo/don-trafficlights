@@ -13,7 +13,7 @@ Config.TrafficLights = {
     duration = {
         civCheckTime = 3000,
         leoCheckTime = 1000,
-        lightTime = 5000,
+        lightTime = 3500,
         leoLightTime = 7500 
     }
 }
