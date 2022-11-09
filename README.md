@@ -37,6 +37,10 @@ Config.JobCheck = 'First Responder' -- Set to either LEO, EMS or FirstResponder 
 # LEO's
 - Set your server's emergency service related job names (if they're different) in Config.AuthorizedJobs.
 
+# Support
+- Join my [discord](https://discord.gg/tVA58nbBuk) and use the relative support channels. 
+- Until a ticket system for support is created, please have your Tebex Transation ID ready 🙂.
+
 # Changelog
 - v1.0.3 Added amber light to smooth transitions when player leaving intersection area // server synced
 - v1.0.2 Local traffic listens to the updated signals // server synced
