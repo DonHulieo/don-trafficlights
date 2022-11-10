@@ -1,8 +1,9 @@
 # don-trafficlights
 Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](https://dons-developments.tebex.io/package/5370160).
 
-# Dependencies
+# Optional Dependencies
 - [qb-core](https://github.com/qbcore-framework/qb-core)
+- [ESX](https://github.com/esx-framework/esx-legacy)
 
 # Features
 - Optimised code, resmon of 0~0.1ms. Peaking for civilians when stopped at lights and when LEO's have sirens on near traffic lights.
