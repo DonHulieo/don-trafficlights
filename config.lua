@@ -20,16 +20,17 @@ Config.TrafficLights = {
 
 Config.JobCheck = 'FirstResponder' -- Set to either LEO, EMS or FirstResponder to change what jobs declared below, trigger a light change
 
-if Config.Framework == 'QBCore' then
+
+if Config.Framework == 'QBCore' then 
     local QBCore = exports['qb-core']:GetCoreObject()
-    Config.AuthorizedJobs = {
+    Config.AuthorizedJobs = 
+    {
         LEO = { -- this is for job checks which should only return true for police officers
             Jobs = {['police'] = true, ['fib'] = true, ['sheriff'] = true},
             Types = {['police'] = true, ['leo'] = true},
             Check = function()
                 local PlyData = QBCore.Functions.GetPlayerData()
                 local job, jobtype = PlyData.job.name, PlyData.job.type
-
                 if Config.AuthorizedJobs.LEO.Jobs[job] or Config.AuthorizedJobs.LEO.Types[jobtype] then return true end
             end
         },
@@ -39,7 +40,6 @@ if Config.Framework == 'QBCore' then
             Check = function()
                 local PlyData = QBCore.Functions.GetPlayerData()
                 local job, jobtype = PlyData.job.name, PlyData.job.type
-
                 if Config.AuthorizedJobs.EMS.Jobs[job] or Config.AuthorizedJobs.EMS.Types[jobtype] then return true end
             end
         },
@@ -47,8 +47,35 @@ if Config.Framework == 'QBCore' then
             Check = function()
                 local PlyData = QBCore.Functions.GetPlayerData()
                 local job, jobtype = PlyData.job.name, PlyData.job.type
-
                 if Config.AuthorizedJobs.LEO.Check(jobtype, job) or Config.AuthorizedJobs.EMS.Check(jobtype, job) then return true end            
+            end
+        }
+    }
+elseif Config.Framework == 'ESX' then
+    local ESX = exports['es_extended']:getSharedObject()
+    Config.AuthorizedJobs = 
+    {
+        LEO = { -- this is for job checks which should only return true for police officers
+            Jobs = {['police'] = true, ['fib'] = true, ['sheriff'] = true, ['highway'] = true},
+            Check = function()
+                local PlyData = ESX.GetPlayerData()
+                local job = PlyData.job.name
+                if Config.AuthorizedJobs.LEO.Jobs[job] then return true end
+            end
+        },
+        EMS = { -- this if for job checks which should only return true for ems workers
+            Jobs = {['ambulance'] = true, ['fire'] = true},
+            Check = function()
+                local PlyData = ESX.GetPlayerData()
+                local job = PlyData.job.name
+                if Config.AuthorizedJobs.EMS.Jobs[job] then return true end
+            end
+        },
+        FirstResponder = { -- do not touch, this is a combined job checking function for emergency services (police and ems)
+            Check = function()
+                local PlyData = ESX.GetPlayerData()
+                local job = PlyData.job.name
+                if Config.AuthorizedJobs.LEO.Check(job) or Config.AuthorizedJobs.EMS.Check(job) then return true end            
             end
         }
     }
