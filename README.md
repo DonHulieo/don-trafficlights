@@ -44,7 +44,9 @@ Config.JobCheck = 'First Responder' -- Set to either LEO, EMS or FirstResponder 
 - Until a ticket system for support is created, please have your Tebex Transation ID ready 🙂.
 
 # Changelog
-- v1.0.4 Added Config option for ESX, job check currently setup for police, ambulance and fire, use Config.JobCheck to set the job checks respectively. 
+- v1.0.6 - Changed the Config option for ESX to be the same as QBCore, now you can add as many jobs as you want
+- v1.0.5 - Added Sheriff and Highway as job titles for ESX
+- v1.0.4 Added Config option for ESX, job check currently setup for police, ambulance and fire, use Config.JobCheck to set the job checks respectively.
 - v1.0.3 Added amber light to smooth transitions when player leaving intersection area // server synced
 - v1.0.2 Local traffic listens to the updated signals // server synced
-- v1.0.1 Added Config.JobCheck so users aren't forced to only use FirstResponders
+- v1.0.1 Added Config.JobCheck so users aren’t forced to only use FirstResponders
