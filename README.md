@@ -33,37 +33,37 @@ Config.DebugMode = false
 
 ```lua
 Config.Search = {
-    lightDist = 80.0,
-    vehicles = true,
-    vehDist = 80.0,
-    headingThres = 45.0,
-    maxLights = 8, -- Max amount of lights to set at once
-    maxVehicles = 16 -- Max amount of vehicles to set at once
+    ['Lights'] = {
+        enabled = true,
+        distance = 80.0,
+        headingThres = 45.0,
+        max = 8
+    },
+    ...
 }
 ```
 
-- `lightDist` - The max distance to search for traffic lights, this is the distance from the player to the traffic light.
-- `vehicles` - Set to true if you want to search for vehicles, this will ensure the vehicles within the search radius are 'aware' of the traffic light changes.
-- `vehDist` - The max distance to search for vehicles, this is the distance from the player to the vehicle and the vehicle to the traffic light.
-- `headingThres` - The max angle the vehicle can be facing away from the traffic light, this is to ensure the vehicle is facing the traffic light.
-- `maxLights` - The max amount of lights to set at once, this is to ensure the server doesn't lag when setting the lights.
-- `maxVehicles` - The max amount of vehicles to set at once, this is to ensure the server doesn't lag when setting the lights.
+- There are two search options, one for the traffic lights, `Lights` and one for the vehicles, `Vehicles`. Both have the same options.
+- `enabled` - Set to true if you want to search for the respective entity.
+- `distance` - The distance in meters to search for.
+- `headingThres` - The heading threshold in degrees to search for.
+- `max` - The maximum amount of entities to search for.
 
-**Note:** The vehicle search feature is quite intensive, if you're experiencing lag or performance issues when setting the lights, set `vehicles` to false.
+**Note:** The vehicle search feature is can be quite intensive depending on the amount of vehicles in the area, it is recommended to keep this disabled if you're not using it.
 
 ```lua
 Config.Duration = {
-    civCheckTime = 1000,
-    leoCheckTime = 500,
-    lightTime = 3500,
-    leoLightTime = 7500
+    ['Civ'] = {
+        checkTime = 1000,
+        lightTime = 3500
+    },
+    ...
 }
 ```
 
-- `civCheckTime` - The time in milliseconds to check if a civilian is stopped at a traffic light.
-- `leoCheckTime` - The time in milliseconds to check if a LEO is stopped at a traffic light.
-- `lightTime` - The time in milliseconds for the traffic light to stay green for civilians.
-- `leoLightTime` - The time in milliseconds for the traffic light to stay green for LEO's.
+- There are two duration options, one for civilians, `Civ` and one for LEO's, `LEO`. Both have the same options.
+- `checkTime` - The time in ms to check for traffic lights.
+- `lightTime` - The time in ms until the light changes.
 
 ## LEO's
 
@@ -76,6 +76,7 @@ Config.Duration = {
 
 ## Changelog
 
+- v1.1.1 - Localised functions, Changed the Config Further for More Options and Accessibility , Finalised Lua Documentation and Fixed Light Syncing Issue.
 - v1.1.0 - Large Code Refactor, Uses GamePools to find Entities, Rewrote Config to Be More Readable, Vehicles Facing Red Lights Now Stop and Added Config Option to Turn Off Vehicle Search.
 - v1.0.9 - Refactor Code in Preparation for v1.1.0
 - v1.0.8 - Optimised the traffic light search function, now lights facing away from the player will be turned red.
