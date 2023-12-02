@@ -1,6 +1,5 @@
 Config = {}
 
-Config.Framework = 'QBCore' -- 'ESX' or 'QBCore' or 'None' (if you want to use this script without any job checks and just use the siren to trigger the lights)
 Config.JobCheck = 'FirstResponder' -- Set to either LEO, EMS or FirstResponder to change what jobs declared below, trigger a light change
 Config.DebugMode = false -- Set to true to enable debug mode (This will spam your console with debug messages, also draws a marker above affected vehicles and lights)
 
@@ -31,7 +30,7 @@ Config.Duration = {
 }
 
 --------------------------- ADD YOUR RELEVANT EMS JOBS HERE // DO NOT TOUCH THE FIRST RESPONDER SECTION ---------------------------
-Config.AuthorizedJobs = {
+Config.AuthorisedJobs = {
     LEO = { -- this is for job checks which should only return true for police officers
         Jobs = {['police'] = true, ['fib'] = true, ['sheriff'] = true},
         Types = {['police'] = true, ['leo'] = true},
@@ -43,7 +42,7 @@ Config.AuthorizedJobs = {
             PlyData = PlyData or GetPlayerData()
             if not PlyData or (PlyData and (not PlyData.job or not PlyData.job.type))  then return false end
             job, jobType = job or PlyData.job.name, jobType or PlyData.job.type
-            return Config.AuthorizedJobs.LEO.Jobs[job] or Config.AuthorizedJobs.LEO.Types[jobType]
+            return Config.AuthorisedJobs.LEO.Jobs[job] or Config.AuthorisedJobs.LEO.Types[jobType]
         end
     },
     EMS = { -- this if for job checks which should only return true for ems workers
@@ -57,7 +56,7 @@ Config.AuthorizedJobs = {
             PlyData = PlyData or GetPlayerData()
             if not PlyData or (PlyData and (not PlyData.job or not PlyData.job.type))  then return false end
             job, jobType = job or PlyData.job.name, jobType or PlyData.job.type
-            return Config.AuthorizedJobs.EMS.Jobs[job] or Config.AuthorizedJobs.EMS.Types[jobType]
+            return Config.AuthorisedJobs.EMS.Jobs[job] or Config.AuthorisedJobs.EMS.Types[jobType]
         end
     },
     FirstResponder = { -- do not touch, this is a combined job checking function for emergency services (police and ems)
@@ -67,7 +66,7 @@ Config.AuthorizedJobs = {
             PlyData = PlyData or GetPlayerData()
             if not PlyData or (PlyData and (not PlyData.job or not PlyData.job.type))  then return false end
             local job, jobType = PlyData.job.name, PlyData.job.type
-            return Config.AuthorizedJobs.LEO.Check(PlyData, job, jobType) or Config.AuthorizedJobs.EMS.Check(PlyData, job, jobType)
+            return Config.AuthorisedJobs.LEO.Check(PlyData, job, jobType) or Config.AuthorisedJobs.EMS.Check(PlyData, job, jobType)
         end
     }
 }
