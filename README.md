@@ -67,18 +67,18 @@ Config.DebugMode = false
 
 ```lua
 Config.Search = {
-    ['Lights'] = {
-        enabled = true,
-        distance = 80.0,
-        headingThres = 45.0,
-        max = 8
-    },
-    ['Vehicles'] = {
-        enabled = true,
-        distance = 80.0,
-        headingThres = 15.0,
-        max = 16
-    }
+  ['Lights'] = {
+    enabled = true,
+    distance = 80.0,
+    headingThres = 45.0,
+    max = 8
+  },
+  ['Vehicles'] = {
+    enabled = true,
+    distance = 80.0,
+    headingThres = 15.0,
+    max = 16
+  }
 }
 ```
 
@@ -97,14 +97,14 @@ Config.Search = {
 
 ```lua
 Config.Duration = {
-    ['Civ'] = {
-        checkTime = 1000,
-        lightTime = 3500
-    },
-    ['LEO'] = {
-        checkTime = 500,
-        lightTime = 7500
-    }
+  ['Civ'] = {
+    checkTime = 1000,
+    lightTime = 3500
+  },
+  ['LEO'] = {
+    checkTime = 500,
+    lightTime = 7500
+  }
 }
 ```
 
@@ -117,16 +117,16 @@ Config.Duration = {
 
 ```lua
 Config.AuthorisedJobs = {
-    LEO = {
-        Jobs = {['police'] = true, ['fib'] = true, ['sheriff'] = true},
-        Types = {['police'] = true, ['leo'] = true},
-        ...
-    },
-    EMS = {
-        Jobs = {['ambulance'] = true, ['fire'] = true},
-        Types = {['ambulance'] = true, ['fire'] = true, ['ems'] = true},
-        ...
-    },
+  LEO = {
+    Jobs = {['police'] = true, ['fib'] = true, ['sheriff'] = true},
+    Types = {['police'] = true, ['leo'] = true},
+      ...
+  },
+  EMS = {
+    Jobs = {['ambulance'] = true, ['fire'] = true},
+    Types = {['ambulance'] = true, ['fire'] = true, ['ems'] = true},
+      ...
+  },
 }
 ```
 
@@ -142,6 +142,7 @@ Config.AuthorisedJobs = {
 
 ### Changelog
 
+- v1.1.3 - Added Scoped Events for Triggering Light Changes, Improve Annotations and Implemented Version Checker from Gifts and Patrols.
 - v1.1.2 - Fixed Max Lights and Vehicles Being Set Beyond Config Limits, Variable Linting and Auto Framework Detection.
 - v1.1.1 - Localised functions, Changed the Config Further for More Options and Accessibility, Finalised Lua Documentation and Fixed Light Syncing Issue.
 - v1.1.0 - Large Code Refactor, Uses GamePools to find Entities, Rewrote Config to Be More Readable, Vehicles Facing Red Lights Now Stop and Added Config Option to Turn Off Vehicle Search.
