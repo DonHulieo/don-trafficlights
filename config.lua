@@ -2,6 +2,7 @@ Config = {}
 
 Config.JobCheck = 'FirstResponder' -- Set to either LEO, EMS or FirstResponder to change what jobs declared below, trigger a light change
 Config.DebugMode = false -- Set to true to enable debug mode (This will spam your console with debug messages, also draws a marker above affected vehicles and lights)
+Config.SyncDistance = 424.0 -- The distance that other players have to be within to see the traffic lights changes.
 
 Config.Search = {
   ['Lights'] = {

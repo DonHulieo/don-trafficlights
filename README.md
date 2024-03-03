@@ -58,10 +58,12 @@ Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](
 ```lua
 Config.JobCheck = 'FirstResponder'
 Config.DebugMode = false
+Config.SyncDistance = 424.0
 ```
 
 - `JobCheck` string, can be either 'LEO', 'EMS' or 'FirstResponder' and sets what jobs trigger a light change.
 - `DebugMode` boolean, set to true to enable debug mode.
+- `SyncDistance` float, the distance in which players within will see the updated traffic lights.
 
 #### Search
 
@@ -142,6 +144,7 @@ Config.AuthorisedJobs = {
 
 ### Changelog
 
+- v1.1.4 - Removed Scoped Events in Favour of Manual Distance Checking to Improve Syncing between Players.
 - v1.1.3 - Added Scoped Events for Triggering Light Changes, Improve Annotations and Implemented Version Checker from Gifts and Patrols.
 - v1.1.2 - Fixed Max Lights and Vehicles Being Set Beyond Config Limits, Variable Linting and Auto Framework Detection.
 - v1.1.1 - Localised functions, Changed the Config Further for More Options and Accessibility, Finalised Lua Documentation and Fixed Light Syncing Issue.
