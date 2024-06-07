@@ -20,10 +20,10 @@ Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](
       - [Dependencies](#dependencies)
       - [Initial Setup](#initial-setup)
     - [Configuration](#configuration)
-      - [Globals](#globals)
+      - [Debug Mode](#debug-mode)
       - [Search](#search)
       - [Duration](#duration)
-      - [Authorised Jobs](#authorised-jobs)
+      - [Allowed Jobs](#allowed-jobs)
     - [Support](#support)
     - [Changelog](#changelog)
 
@@ -36,39 +36,34 @@ Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](
 
 #### Dependencies
 
-**Note:** This script is standalone, you do not need to install any dependencies if you do not want to.
+**This script requires the following script to be installed:**
 
-- [QBCore](https://github.com/qbcore-framework/qb-core)
-- [ESX](https://github.com/esx-framework/esx-legacy)
+- [duff](https://github.com/DonHulieo/duff)
 
 #### Initial Setup
 
 - Always use the latest FiveM artifacts (tested on 6683), you can find them [here](https://runtime.fivem.net/artifacts/fivem/build_server_windows/master/).
 - Download the latest version from your keymaster.
-- Extract the contents of the zip file into your resources folder, into a folder which starts after your framework or;
-- Ensure the script in your `server.cfg` after your framework.
-- Configure both the globals `Config.JobCheck` and `Config.DebugMode` before starting the script, see [Configuration](#configuration) for more information.
+- Extract the contents of the zip file into your resources folder, into a folder which starts after your framework & `duff` or;
+- Ensure the script in your `server.cfg` after your framework & `duff`.
+- Configure `shared/config.lua` to your liking, see [Configuration](#configuration) for more information.
 
 **Note:** This script automatically configures it's Core functions to work with your framework.
 
 ### Configuration
 
-#### Globals
+#### Debug Mode
 
 ```lua
-Config.JobCheck = 'FirstResponder'
-Config.DebugMode = false
-Config.SyncDistance = 424.0
+['DebugMode'] = false
 ```
 
-- `JobCheck` string, can be either 'LEO', 'EMS' or 'FirstResponder' and sets what jobs trigger a light change.
-- `DebugMode` boolean, set to true to enable debug mode.
-- `SyncDistance` float, the distance in which players within will see the updated traffic lights.
+- `DebugMode` boolean, whether to show debug messages in the console & draw markers on affected vehicles and lights
 
 #### Search
 
 ```lua
-Config.Search = {
+['Search'] = {
   ['Lights'] = {
     enabled = true,
     distance = 80.0,
@@ -98,7 +93,7 @@ Config.Search = {
 #### Duration
 
 ```lua
-Config.Duration = {
+['Duration'] = {
   ['Civ'] = {
     checkTime = 1000,
     lightTime = 3500
@@ -115,27 +110,13 @@ Config.Duration = {
 - `['LEO'].checkTime` integer, the time in ms to check for traffic lights as a LEO.
 - `['LEO'].lightTime` integer, the time in ms until the light changes for LEO light changes.
 
-#### Authorised Jobs
+#### Allowed Jobs
 
 ```lua
-Config.AuthorisedJobs = {
-  LEO = {
-    Jobs = {['police'] = true, ['fib'] = true, ['sheriff'] = true},
-    Types = {['police'] = true, ['leo'] = true},
-      ...
-  },
-  EMS = {
-    Jobs = {['ambulance'] = true, ['fire'] = true},
-    Types = {['ambulance'] = true, ['fire'] = true, ['ems'] = true},
-      ...
-  },
-}
+['AllowedJobs'] = {'police', 'fib', 'sheriff', 'ambulance', 'fire'}
 ```
 
-- `Jobs` table, the jobs which should return true for the job check.
-- `Types` table, the job types which should return true for the job check.
-
-**Note:** The first two tables are editable (`LEO` and `EMS`), `FirstResponders` is not editable and is used for combined job checks.
+- `AllowedJobs` string|string[], the jobs that are allowed to trigger the light changes.
 
 ### Support
 
@@ -144,6 +125,7 @@ Config.AuthorisedJobs = {
 
 ### Changelog
 
+- v1.1.5 - Fixed Traffic Light Syncing Issue & Add [duff](https://github.com/DonHulieo/duff) as a dependency.
 - v1.1.4 - Removed Scoped Events in Favour of Manual Distance Checking to Improve Syncing between Players.
 - v1.1.3 - Added Scoped Events for Triggering Light Changes, Improve Annotations and Implemented Version Checker from Gifts and Patrols.
 - v1.1.2 - Fixed Max Lights and Vehicles Being Set Beyond Config Limits, Variable Linting and Auto Framework Detection.
