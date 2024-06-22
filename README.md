@@ -125,6 +125,7 @@ Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](
 
 ### Changelog
 
+- v1.1.6 - Support updates for [duff](https://github.com/DonHulieo/duff).
 - v1.1.5 - Fixed Traffic Light Syncing Issue & Add [duff](https://github.com/DonHulieo/duff) as a dependency.
 - v1.1.4 - Removed Scoped Events in Favour of Manual Distance Checking to Improve Syncing between Players.
 - v1.1.3 - Added Scoped Events for Triggering Light Changes, Improve Annotations and Implemented Version Checker from Gifts and Patrols.
