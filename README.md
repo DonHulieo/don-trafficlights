@@ -95,20 +95,24 @@ Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](
 ```lua
 ['Duration'] = {
   ['Civ'] = {
-    checkTime = 1000,
-    lightTime = 3500
+    check = 1000,
+    wait = 3000,
+    light = 3500
   },
   ['LEO'] = {
-    checkTime = 500,
-    lightTime = 7500
+    check = 500,
+    wait = 3000,
+    light = 7500
   }
 }
 ```
 
-- `['Civ'].checkTime` integer, the time in ms to check for traffic lights as a civilian.
-- `['Civ'].lightTime` integer, the time in ms until the light changes.
-- `['LEO'].checkTime` integer, the time in ms to check for traffic lights as a LEO.
-- `['LEO'].lightTime` integer, the time in ms until the light changes for LEO light changes.
+- `['Civ'].check` integer, the time in ms to check for traffic lights as a civilian.
+- `['Civ'].wait` integer, the time in ms to wait before the light changes.
+- `['Civ'].light` integer, the time in ms between light changes.
+- `['LEO'].check` integer, the time in ms to check for traffic lights as a LEO.
+- `['LEO'].wait` integer, the time in ms to wait before the light changes.
+- `['LEO'].light` integer, the time in ms between light changes.
 
 #### Allowed Jobs
 
@@ -125,6 +129,7 @@ Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](
 
 ### Changelog
 
+- v1.1.8 - Added more configurable options for light timings.
 - v1.1.7 - Optimsed retrieval of vehicles and lights and support updates for [duff](https://github.com/DonHulieo/duff).
 - v1.1.6 - Support updates for [duff](https://github.com/DonHulieo/duff).
 - v1.1.5 - Fixed Traffic Light Syncing Issue & Add [duff](https://github.com/DonHulieo/duff) as a dependency.

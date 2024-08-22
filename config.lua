@@ -1,7 +1,7 @@
 return {
   ---@type boolean Whether to show debug messages in the console & draw markers on affected vehicles and lights
   ['DebugMode'] = false,
-  ---@type {Lights: {enabled: boolean, distance: number, headingThres: number, max: number}, Vehicles: {enabled: boolean, distance: number, headingThres: number, max: number}}
+  ---@type {Lights: {enabled: boolean, distance: number, headingThres: number, max: integer}, Vehicles: {enabled: boolean, distance: number, headingThres: number, max: integer}}
   ['Search'] = {
     ['Lights'] = {
       enabled = true, -- Whether or not to search for traffic lights
@@ -16,15 +16,17 @@ return {
       max = 16 -- Max amount of vehicles to set at once
     }
   },
-  ---@type {Civ: {checkTime: number, lightTime: number}, LEO: {checkTime: number, lightTime: number}}
-  ['Duration'] = {
+  ---@type {Civ: {check: integer, wait: integer, light: integer}, LEO: {check: integer, wait: integer, light: integer}}
+  ['Duration'] = { -- Times in ms
     ['Civ'] = {
-      checkTime = 1000, -- Time in ms to check for traffic lights as a civilian
-      lightTime = 3500 -- Time in ms until the light changes
+      check = 1000, -- The time between checks for traffic lights
+      wait = 3000, -- The wait time before initiating the light change
+      light = 3500 -- The duration of each light change
     },
     ['LEO'] = {
-      checkTime = 500, -- Time in ms to check for traffic lights as a leo
-      lightTime = 7500 -- Time in ms until the light changes for leo light changes
+      check = 500, -- The time between checks for traffic lights
+      wait = 3000, -- The wait time before initiating the light change
+      light = 7500 -- The duration of each light change
     }
   },
   ---@type {AllowedJobs: string[]} Add your relevant jobs here to allow them to change the lights
