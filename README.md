@@ -1,6 +1,6 @@
 # don-trafficlights
 
-Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](https://dons-developments.tebex.io/package/5370160).
+Traffic Lights Logic for FiveM! This is a paid script, available on my [Tebex](https://dons-developments.tebex.io/package/5370160).
 
 ## Features
 
@@ -93,26 +93,10 @@ Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](
 #### Duration
 
 ```lua
-['Duration'] = {
-  ['Civ'] = {
-    check = 1000,
-    wait = 3000,
-    light = 3500
-  },
-  ['LEO'] = {
-    check = 500,
-    wait = 3000,
-    light = 7500
-  }
-}
+['Duration'] = 4500,
 ```
 
-- `['Civ'].check` integer, the time in ms to check for traffic lights as a civilian.
-- `['Civ'].wait` integer, the time in ms to wait before the light changes.
-- `['Civ'].light` integer, the time in ms between light changes.
-- `['LEO'].check` integer, the time in ms to check for traffic lights as a LEO.
-- `['LEO'].wait` integer, the time in ms to wait before the light changes.
-- `['LEO'].light` integer, the time in ms between light changes.
+- `['Duration']` integer, the duration in milliseconds between each traffic light state.
 
 #### Allowed Jobs
 
@@ -129,8 +113,9 @@ Traffic Lights Logic for QBCore! This is a paid script, available on my [Tebex](
 
 ### Changelog
 
+- v1.1.9 - Added `kdtree` usage for faster light retrieval, changed functionality to use GlobalStates for better syncing across players and changed duration to be more intuitive.
 - v1.1.8 - Added more configurable options for light timings.
-- v1.1.7 - Optimsed retrieval of vehicles and lights and support updates for [duff](https://github.com/DonHulieo/duff).
+- v1.1.7 - Optimised retrieval of vehicles and lights and support updates for [duff](https://github.com/DonHulieo/duff).
 - v1.1.6 - Support updates for [duff](https://github.com/DonHulieo/duff).
 - v1.1.5 - Fixed Traffic Light Syncing Issue & Add [duff](https://github.com/DonHulieo/duff) as a dependency.
 - v1.1.4 - Removed Scoped Events in Favour of Manual Distance Checking to Improve Syncing between Players.
