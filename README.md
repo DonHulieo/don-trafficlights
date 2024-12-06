@@ -19,6 +19,11 @@ Traffic Lights Logic for FiveM! This is a paid script, available on my [Tebex](h
     - [Installation](#installation)
       - [Dependencies](#dependencies)
       - [Initial Setup](#initial-setup)
+    - [Exports](#exports)
+      - [getglobalstate](#getglobalstate)
+      - [setglobalstate](#setglobalstate)
+      - [setlightstates](#setlightstates)
+      - [setclientstate](#setclientstate)
     - [Configuration](#configuration)
       - [Debug Mode](#debug-mode)
       - [Search](#search)
@@ -49,6 +54,67 @@ Traffic Lights Logic for FiveM! This is a paid script, available on my [Tebex](h
 - Configure `shared/config.lua` to your liking, see [Configuration](#configuration) for more information.
 
 **Note:** This script automatically configures it's Core functions to work with your framework.
+
+### Exports
+
+#### getglobalstate
+
+A server export to get the Global State of whether light changes are enabled or not.
+
+```lua
+---@return boolean enabled
+GlobalState['trafficlights:enabled']
+
+exports['don-trafficlights']:getglobalstate()
+```
+
+- `returns: boolean` enabled, whether light changes are enabled or not.
+
+#### setglobalstate
+
+A server export to set the Global State of whether light changes are enabled or not.
+
+```lua
+---@param state boolean
+GlobalState['trafficlights:enabled'] = state
+
+exports['don-trafficlights']:setglobalstate(state)
+```
+
+- `state`, whether light changes are enabled or not.
+
+#### setlightstates
+
+A server export to set the light states for a player or position.
+
+```lua
+---@param position vector4
+---@param intersection_lights {[1]: number, [2]: number, [3]: number, heading: number, model: number}[]
+---@param intersection_centre vector3
+---@param is_leo boolean
+exports['don-trafficlights']:setlightstates(position, intersection_lights, intersection_centre, is_leo)
+```
+
+- `position`, the position of the player or trigger point.
+- `intersection_lights`, the array of lights to be set.
+  - `[1]`, the x coordinate of the light.
+  - `[2]`, the y coordinate of the light.
+  - `[3]`, the z coordinate of the light.
+  - `heading`, the heading of the light.
+  - `model`, the model of the light.
+- `intersection_centre`, the centre of the intersection.
+- `is_leo`, whether the player is an LEO or not.
+
+#### setclientstate
+
+A client export to set whether light changes are enabled or not.
+
+```lua
+---@param state boolean
+exports['don-trafficlights']:setclientstate(state)
+```
+
+- `state`, whether light changes are enabled or not.
 
 ### Configuration
 
@@ -113,6 +179,7 @@ Traffic Lights Logic for FiveM! This is a paid script, available on my [Tebex](h
 
 ### Changelog
 
+- v1.2.0 - Bug fixes for retreiving lights to be set, Added Global Dis/Enable for Lights & AI Changes and Added Exports for Light Changes.
 - v1.1.9 - Added `kdtree` usage for faster light retrieval, changed functionality to use GlobalStates for better syncing across players and changed duration to be more intuitive.
 - v1.1.8 - Added more configurable options for light timings.
 - v1.1.7 - Optimised retrieval of vehicles and lights and support updates for [duff](https://github.com/DonHulieo/duff).
