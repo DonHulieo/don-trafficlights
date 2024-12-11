@@ -179,6 +179,7 @@ exports['don-trafficlights']:setclientstate(state)
 
 ### Changelog
 
+- v1.2.1 - Further fixes for users on dedicated servers, elimating issues relating to network connection and packet loss.
 - v1.2.0 - Bug fixes for retreiving lights to be set, Added Global Dis/Enable for Lights & AI Changes and Added Exports for Light Changes.
 - v1.1.9 - Added `kdtree` usage for faster light retrieval, changed functionality to use GlobalStates for better syncing across players and changed duration to be more intuitive.
 - v1.1.8 - Added more configurable options for light timings.

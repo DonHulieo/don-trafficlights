@@ -6,7 +6,7 @@ return {
     ['Lights'] = {
       enabled = true, -- Whether or not to search for traffic lights
       distance = 60.0, -- Max distance to search for traffic lights
-      headingThres = 40.0, -- The threshold for the heading difference between player and the traffic light
+      headingThres = 30.0, -- The threshold for the heading difference between player and the traffic light
       max = 8 -- Max amount of lights to set at once
     },
     ['Vehicles'] = {
