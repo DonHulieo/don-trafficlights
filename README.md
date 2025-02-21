@@ -26,6 +26,7 @@ Traffic Lights Logic for FiveM! This is a paid script, available on my [Tebex](h
       - [setclientstate](#setclientstate)
     - [Configuration](#configuration)
       - [Debug Mode](#debug-mode)
+      - [EMS Priority](#ems-priority)
       - [Search](#search)
       - [Duration](#duration)
       - [Allowed Jobs](#allowed-jobs)
@@ -125,6 +126,14 @@ exports['don-trafficlights']:setclientstate(state)
 ```
 
 - `DebugMode` boolean, whether to show debug messages in the console & draw markers on affected vehicles and lights
+
+#### EMS Priority
+
+```lua
+['EMSPriority'] = true
+```
+
+- `EMSPriority` boolean, whether or not to give priority to EMS vehicles when they have their sirens on.
 
 #### Search
 

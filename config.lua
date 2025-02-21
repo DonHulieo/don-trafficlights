@@ -1,6 +1,8 @@
 return {
   ---@type boolean Whether to show debug messages in the console & draw markers on affected vehicles and lights
   ['DebugMode'] = false,
+  ---@type boolean Whether to allow EMS/LEO traffic light priority.
+  ['EMSPriority'] = true,
   ---@type {Lights: {enabled: boolean, distance: number, headingThres: number, max: integer}, Vehicles: {enabled: boolean, distance: number, headingThres: number, max: integer}}
   ['Search'] = {
     ['Lights'] = {
