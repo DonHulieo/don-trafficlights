@@ -1,6 +1,6 @@
 # don-trafficlights
 
-Traffic Lights Logic for FiveM! This is a paid script, available on my [Tebex](https://dons-developments.tebex.io/package/5370160).
+Traffic Lights Logic for FiveM! This is a paid script, available on my [Tebex](https://grouse-labs.tebex.io/package/5370160).
 
 ## Features
 
@@ -180,11 +180,6 @@ exports['don-trafficlights']:setclientstate(state)
 ```
 
 - `AllowedJobs` string|string[], the jobs that are allowed to trigger the light changes.
-
-### Support
-
-- Join my [discord](https://discord.gg/tVA58nbBuk) and use the relative support channels.
-- Open a ticket and please have your Tebex Transation ID ready 🙂.
 
 ### Changelog
 
